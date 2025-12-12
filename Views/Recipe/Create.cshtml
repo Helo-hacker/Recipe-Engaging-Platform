@@ -1,0 +1,80 @@
+@model RecipeSharingApp.Models.Recipe
+
+<h2>Create Recipe</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <label class="form-label">Title *</label>
+        <input class="form-control" name="Title" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Short Description *</label>
+        <textarea class="form-control" name="ShortDescription" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">About the Recipe *</label>
+        <textarea class="form-control" name="Description" required></textarea>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label class="form-label">Servings *</label>
+            <input class="form-control" name="Servings" type="number" required />
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Prep Time (min) *</label>
+            <input class="form-control" name="PrepTimeMinutes" type="number" required />
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Cook Time (min) *</label>
+            <input class="form-control" name="CookTimeMinutes" type="number" required />
+        </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label class="form-label">Precautions *</label>
+        <textarea class="form-control" name="Precautions" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Difficulty *</label>
+        <select class="form-control" name="Difficulty">
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Thumbnail *</label>
+        <input type="file" name="ThumbnailFile" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Meal Type *</label>
+        <select class="form-control" name="MealTypeId">
+            @foreach (var item in ViewBag.MealTypes)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Dietary *</label>
+        <select class="form-control" name="DietaryFlagId">
+            @foreach (var d in ViewBag.Dietary)
+            {
+                <option value="@d.Id">@d.Name</option>
+            }
+        </select>
+    </div>
+
+    <button class="btn btn-primary mt-3">Save & Continue</button>
+
+</form>

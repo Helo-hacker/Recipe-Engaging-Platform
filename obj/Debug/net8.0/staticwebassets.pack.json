@@ -1,0 +1,365 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\RecipeSharingApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\RecipeSharingApp.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\EggTumbhnail.webp",
+      "PackagePath": "staticwebassets\\Images\\EggTumbhnail.webp"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\Tandoori-Chicken.jpg",
+      "PackagePath": "staticwebassets\\Images\\Tandoori-Chicken.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\korean-ramen.jpg",
+      "PackagePath": "staticwebassets\\Images\\korean-ramen.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\masala-omelette.jpg",
+      "PackagePath": "staticwebassets\\Images\\masala-omelette.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\paneer-tawa-fry-recipe.jpg",
+      "PackagePath": "staticwebassets\\Images\\paneer-tawa-fry-recipe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\profile-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\profile-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\profile-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\profile-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\profile-3.jpg",
+      "PackagePath": "staticwebassets\\Images\\profile-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\rivals.jfif",
+      "PackagePath": "staticwebassets\\Images\\rivals.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\Images\\sandwish.jpg",
+      "PackagePath": "staticwebassets\\Images\\sandwish.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\0edc6cb7-00cf-4b38-80e1-ccf62a5beb1e.jpg",
+      "PackagePath": "staticwebassets\\profile-images\\0edc6cb7-00cf-4b38-80e1-ccf62a5beb1e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\1463d621-6519-400f-b06a-1b4293971613.avif",
+      "PackagePath": "staticwebassets\\profile-images\\1463d621-6519-400f-b06a-1b4293971613.avif"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\33516aae-73da-48b4-9cd7-f98dc830158d.avif",
+      "PackagePath": "staticwebassets\\profile-images\\33516aae-73da-48b4-9cd7-f98dc830158d.avif"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\4be4e6ec-92a8-454d-ae11-5edc3e0946ec.jpg",
+      "PackagePath": "staticwebassets\\profile-images\\4be4e6ec-92a8-454d-ae11-5edc3e0946ec.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\68ab5bb7-428a-4622-a227-ad3f3cbe9068.jpg",
+      "PackagePath": "staticwebassets\\profile-images\\68ab5bb7-428a-4622-a227-ad3f3cbe9068.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\c1f1a4cc-1fcd-44bd-8c9a-a42dfea1bc2e.webp",
+      "PackagePath": "staticwebassets\\profile-images\\c1f1a4cc-1fcd-44bd-8c9a-a42dfea1bc2e.webp"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\ec8c001a-8e42-4cf0-87a1-64bf8ce315f9.avif",
+      "PackagePath": "staticwebassets\\profile-images\\ec8c001a-8e42-4cf0-87a1-64bf8ce315f9.avif"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\profile-images\\fa7e6b47-ae66-43ea-831a-8411bb8fef3a.jpg",
+      "PackagePath": "staticwebassets\\profile-images\\fa7e6b47-ae66-43ea-831a-8411bb8fef3a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\23f73ca3-f538-40b4-be74-9fe0833b8d6b.webp",
+      "PackagePath": "staticwebassets\\uploads\\23f73ca3-f538-40b4-be74-9fe0833b8d6b.webp"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\5e256b0d-1932-45d5-9d1a-265a56d2e98f.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5e256b0d-1932-45d5-9d1a-265a56d2e98f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\a852efc3-7fb1-43f5-8878-96660ad28899.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a852efc3-7fb1-43f5-8878-96660ad28899.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\c4b73139-6f34-4b4f-aa1a-318f97a19b75.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c4b73139-6f34-4b4f-aa1a-318f97a19b75.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\c75c3ff2-38ae-4e7d-a557-86301fdca73a.avif",
+      "PackagePath": "staticwebassets\\uploads\\c75c3ff2-38ae-4e7d-a557-86301fdca73a.avif"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\dc99a617-cdeb-4c34-b22c-b320a6c724c9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\dc99a617-cdeb-4c34-b22c-b320a6c724c9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Atharva.Tandel\\Desktop\\.NET CORE\\RecipeSharingApp\\wwwroot\\uploads\\masala-omelette.jpg",
+      "PackagePath": "staticwebassets\\uploads\\masala-omelette.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RecipeSharingApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.RecipeSharingApp.props",
+      "PackagePath": "build\\RecipeSharingApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.RecipeSharingApp.props",
+      "PackagePath": "buildMultiTargeting\\RecipeSharingApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.RecipeSharingApp.props",
+      "PackagePath": "buildTransitive\\RecipeSharingApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

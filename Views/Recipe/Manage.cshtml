@@ -1,0 +1,125 @@
+@model List<RecipeSharingApp.Models.Recipe>
+
+<style>
+
+    /* Page Wrapper */
+    .manage-wrapper {
+        background: linear-gradient(180deg, #fff8f2, #fae8d7);
+        padding: 40px 20px 80px;
+        min-height: 100vh;
+        border-radius: 12px;
+    }
+
+    h2 {
+        font-weight: 800;
+        color: #d87a2f;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border-top: 2px solid #f2c5a4;
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    /* Recipe Card Grid */
+    .recipe-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+
+    /* Card */
+    .recipe-card {
+        background: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        transition: all .25s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .recipe-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.23);
+    }
+
+    /* Image */
+    .recipe-card img {
+        height: 210px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* Card Body */
+    .card-body-custom {
+        padding: 18px 20px;
+    }
+
+    .recipe-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #4a3b36;
+        margin-bottom: 6px;
+    }
+
+    .recipe-status {
+        font-size: 14px;
+        opacity: 0.65;
+        margin-bottom: 14px;
+    }
+
+    /* Edit Button */
+    .edit-btn {
+        background: #ff8f5c;
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        color: white !important;
+        text-decoration: none;
+        transition: 0.25s ease;
+    }
+
+    .edit-btn:hover {
+        background: #ff7a3d;
+    }
+
+</style>
+
+
+
+
+<div class="manage-wrapper">
+
+    <h2>Manage Your Recipes</h2>
+    <hr />
+
+    <div class="recipe-grid">
+
+        @foreach (var r in Model)
+        {
+            <a href="/Recipe/Edit/@r.Id" class="recipe-card">
+
+                <img src="@r.ThumbnailPath" alt="@r.Title Thumbnail"/>
+
+                <div class="card-body-custom">
+                    <div class="recipe-title">@r.Title</div>
+
+                    <div class="recipe-status">
+                        Status: @r.Status
+                    </div>
+
+                    <div>
+                        <span class="edit-btn">✏ Edit Recipe</span>
+                    </div>
+                </div>
+
+            </a>
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,323 @@
+@model RecipeSharingApp.ViewModels.RegisteredDashboardViewModel
+
+@{
+    ViewBag.Title = "Your Dashboard";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* ============= THEME COLORS (SOFT & PLEASANT) ============= */
+:root {
+    --cream: #FFF8F2;
+    --soft-peach: #FFEDE3;
+    --warm-beige: #F6E4D8;
+    --accent: #D67A59;       /* warm terracotta */
+    --text-dark: #5A463F;
+    --text-muted: #8C7870;
+    --card: #FFFFFF;
+    --shadow: rgba(0,0,0,0.08);
+}
+
+/* PAGE */
+.dashboard-container {
+    max-width: 1150px;
+    margin: 28px auto;
+    padding: 20px;
+}
+
+/* TOP BANNER */
+.welcome {
+    background: linear-gradient(90deg, #FFF8F2, #FFEDE3);
+    border-radius: 16px;
+    padding: 22px 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 20px var(--shadow);
+}
+.welcome .title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+.welcome .subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Stats Row */
+.stats-row {
+    margin-top: 20px;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+}
+@@media(max-width:760px){
+    .stats-row { grid-template-columns: 1fr; }
+}
+
+.stat-card {
+    background: var(--card);
+    padding: 18px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 20px var(--shadow);
+}
+.stat-label { color: var(--text-muted); font-size: 14px; }
+.stat-value { color: var(--accent); font-size: 22px; font-weight: 700; }
+.stat-icon { font-size: 30px; }
+
+/* SPLIT BANNER */
+.split-banner {
+    margin-top: 28px;
+    height: 300px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.split-half {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: .35s ease;
+    filter: brightness(0.85);
+}
+.split-half:hover {
+    transform: scale(1.05);
+    filter: brightness(1);
+    z-index: 10;
+    box-shadow: 0px 12px 25px rgba(0,0,0,0.2);
+}
+
+.left-mask {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+.right-mask {
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.split-label {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* CATEGORY CARDS */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.category-card {
+    background: var(--card);
+    padding: 26px;
+    border-radius: 18px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 8px 20px var(--shadow);
+    transition: 0.3s ease;
+}
+.category-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    filter: blur(10px);
+    transition: 0.3s ease;
+}
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 26px var(--shadow);
+}
+.category-card:hover::before {
+    opacity: 0.25;
+}
+.category-title { font-size: 18px; font-weight: 700; color: var(--text-dark); }
+.category-desc { font-size: 14px; color: var(--text-muted); }
+
+/* RECENT VIEWED CARDS */
+.recent-scroll {
+    margin-top: 15px;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.recent-item {
+    min-width: 160px;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+.recent-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+.recent-item .meta {
+    font-weight: 600;
+    padding: 8px;
+    color: var(--text-dark);
+}
+
+/* TOP PICKS (FULLY CLICKABLE CARD) */
+.top3-list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.top3-row {
+    background: var(--card);
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 8px 20px var(--shadow);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.top3-row:hover {
+    transform: translateY(-4px);
+}
+.top3-row img {
+    width: 90px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.small-muted { color: var(--text-muted); font-size: 13px; }
+
+</style>
+
+
+<!-- ======================= PAGE HTML ======================= -->
+
+<div class="dashboard-container">
+
+    <!-- Welcome -->
+    <div class="welcome">
+        <div>
+            <div class="title">Hello, @Context.Session.GetString("UserName")</div>
+            <div class="subtitle">Here's what's cooking for you today 🍽️</div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div>
+                <div class="stat-label">Saved Recipes</div>
+                <div class="stat-value">@Model.TotalSaved</div>
+            </div>
+            <div class="stat-icon">💾</div>
+        </div>
+
+        <div class="stat-card">
+            <div>
+                <div class="stat-label">Liked Recipes</div>
+                <div class="stat-value">@Model.TotalLiked</div>
+            </div>
+            <div class="stat-icon">❤️</div>
+        </div>
+
+        <div class="stat-card">
+            <div>
+                <div class="stat-label">Comments Posted</div>
+                <div class="stat-value">@Model.TotalComments</div>
+            </div>
+            <div class="stat-icon">💬</div>
+        </div>
+    </div>
+
+    <!-- Split Banner -->
+    <div class="split-banner">
+        <div class="split-half left-mask"
+             style="background-image:url('@Model.LatestRecipe?.ThumbnailPath')"
+             onclick="window.location='/Recipe/Details/@Model.LatestRecipe?.Id'">
+            <div class="split-label">Latest Recipe</div>
+        </div>
+
+        <div class="split-half right-mask"
+             style="background-image:url('@Model.MostLikedRecipe?.ThumbnailPath')"
+             onclick="window.location='/Recipe/Details/@Model.MostLikedRecipe?.Id'">
+            <div class="split-label">Most Liked</div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="category-grid">
+        <div class="category-card" style="--img:url('/images/categories/breakfast.jpg')" onclick="location='/Recipe/List?mealTypeId=1'">
+            <div class="category-title">Breakfast</div>
+            <div class="category-desc">Start your day right ☀️</div>
+        </div>
+
+        <div class="category-card" style="--img:url('/images/categories/lunch.jpg')" onclick="location='/Recipe/List?mealTypeId=2'">
+            <div class="category-title">Lunch & Dinner</div>
+            <div class="category-desc">Comfort meals for everyone 🍛</div>
+        </div>
+
+        <div class="category-card" style="--img:url('/images/categories/snacks.jpg')" onclick="location='/Recipe/List?mealTypeId=3'">
+            <div class="category-title">Snacks</div>
+            <div class="category-desc">Quick bites, big smiles 😋</div>
+        </div>
+
+        <div class="category-card" style="--img:url('/images/categories/tea.jpg')" onclick="location='/Recipe/List?mealTypeId=4'">
+            <div class="category-title">Tea Time</div>
+            <div class="category-desc">Sip, relax, enjoy ☕</div>
+        </div>
+    </div>
+
+    <!-- Recently Viewed -->
+    <h5 class="mt-4">Recently Viewed</h5>
+    <div class="recent-scroll">
+        @foreach (var r in Model.RecentViewed)
+        {
+            <a class="recent-item" href="/Recipe/Details/@r.Id">
+                <img src="@r.ThumbnailPath" />
+                <div class="meta">@r.Title</div>
+            </a>
+        }
+    </div>
+
+    <!-- Top Picks -->
+    <h5 class="mt-4">Top Picks</h5>
+    <div class="top3-list">
+        @foreach (var t in Model.Top3Recipes)
+        {
+            <a class="top3-row" href="/Recipe/Details/@t.Id">
+                <img src="@t.ThumbnailPath" />
+                <div>
+                    <div style="font-weight:700">@t.Title</div>
+                    <div class="small-muted">Likes: @t.TotalLikes • @t.Servings servings</div>
+                </div>
+            </a>
+        }
+    </div>
+
+</div>

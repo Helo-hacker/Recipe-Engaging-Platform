@@ -1,0 +1,153 @@
+@model RecipeSharingApp.Models.Recipe
+
+<h2 class="mb-3">Edit Recipe – @Model.Title</h2>
+
+<div class="row">
+    <!-- LEFT SUMMARY PANEL -->
+    <div class="col-md-4">
+        <div class="card mb-3 shadow-sm">
+            <div class="card-header fw-bold">Recipe Summary</div>
+            <div class="card-body">
+                <p><strong>Meal Type:</strong> @Model.MealType?.Name</p>
+                <p><strong>Dietary:</strong> @Model.DietaryFlag?.Name</p>
+                <p><strong>Status:</strong> @(Model.Status == RecipeStatus.Published ? "Published" : "Draft")</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="col-md-8">
+
+        <!-- TABS -->
+        <ul class="nav nav-tabs" id="recipeTabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#detailsTab">Recipe Details</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#ingredientsTab">Ingredients</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#stepsTab">Process Steps</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#instructionsTab">Instructions</a>
+            </li>
+        </ul>
+
+        <div class="tab-content p-3 border border-top-0 shadow-sm">
+
+            <!-- DETAILS TAB -->
+            <div class="tab-pane fade show active" id="detailsTab">
+
+                <form method="post" enctype="multipart/form-data" action="/Recipe/UpdateDetails">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Recipe Title</label>
+                        <input type="text" name="Title" value="@Model.Title" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Short Description</label>
+                        <textarea name="ShortDescription" class="form-control">@Model.ShortDescription</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Full Description</label>
+                        <textarea name="Description" rows="4" class="form-control">@Model.Description</textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Prep Time (min)</label>
+                            <input type="number" name="PrepTimeMinutes" value="@Model.PrepTimeMinutes" class="form-control" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Cook Time (min)</label>
+                            <input type="number" name="CookTimeMinutes" value="@Model.CookTimeMinutes" class="form-control" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Total Time (min)</label>
+                            <input type="number" name="TotalTimeMinutes" value="@Model.TotalTimeMinutes" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Servings</label>
+                        <input type="number" name="Servings" value="@Model.Servings" class="form-control" />
+                    </div>
+
+                    <div class="row">
+                        <!-- Meal Type -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Meal Type</label>
+<select class="form-select" name="MealTypeId" required>
+    @foreach (var meal in ViewBag.MealTypes)
+    {
+        if (meal.Id == Model.MealTypeId)
+        {
+            <option value="@meal.Id" selected>@meal.Name</option>
+        }
+        else
+        {
+            <option value="@meal.Id">@meal.Name</option>
+        }
+    }
+</select>
+                        </div>
+
+                        <!-- Dietary Type -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Dietary Type</label>
+<select class="form-select" name="DietaryFlagId" required>
+    @foreach (var diet in ViewBag.DietaryFlags)
+    {
+        if (diet.Id == Model.DietaryFlagId)
+        {
+            <option value="@diet.Id" selected>@diet.Name</option>
+        }
+        else
+        {
+            <option value="@diet.Id">@diet.Name</option>
+        }
+    }
+</select>
+
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Thumbnail Image</label>
+                        <input type="file" name="ThumbnailFile" class="form-control" />
+
+                        @if (!string.IsNullOrEmpty(Model.ThumbnailPath))
+                        {
+                            <img src="@Model.ThumbnailPath" style="height:120px;margin-top:10px;border-radius:8px;" />
+                        }
+                    </div>
+
+                    <button class="btn btn-primary mt-3">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- INGREDIENTS TAB -->
+            <div class="tab-pane fade" id="ingredientsTab">
+                @await Html.PartialAsync("Partials/_Ingredients", Model)
+            </div>
+
+            <!-- STEPS TAB -->
+            <div class="tab-pane fade" id="stepsTab">
+                @await Html.PartialAsync("Partials/_ProcessSteps", Model)
+            </div>
+
+            <!-- INSTRUCTIONS TAB -->
+            <div class="tab-pane fade" id="instructionsTab">
+                @await Html.PartialAsync("Partials/_Instructions", Model)
+            </div>
+
+        </div>
+    </div>
+</div>

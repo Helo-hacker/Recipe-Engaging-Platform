@@ -1,0 +1,38 @@
+@model RecipeSharingApp.Models.Recipe
+
+<h4>Ingredients</h4>
+
+<form method="post" action="/Recipe/AddIngredient">
+    <input type="hidden" name="RecipeId" value="@Model.Id" />
+
+    <div class="row">
+        <div class="col-md-5">
+            <input class="form-control" name="Name" placeholder="Ingredient" required />
+        </div>
+
+        <div class="col-md-4">
+            <input class="form-control" name="Quantity" placeholder="Quantity" required />
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-primary w-100">Add</button>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<ul class="list-group mt-3">
+    @foreach (var ing in Model.Ingredients.OrderBy(i => i.SortOrder))
+    {
+        <li class="list-group-item d-flex justify-content-between">
+            <span>@ing.Name — @ing.Quantity</span>
+
+            <form method="post" action="/Recipe/DeleteIngredient" style="margin:0;">
+                <input type="hidden" name="id" value="@ing.Id" />
+                <input type="hidden" name="recipeId" value="@Model.Id" />
+                <button class="btn btn-danger btn-sm">X</button>
+            </form>
+        </li>
+    }
+</ul>

@@ -1,0 +1,144 @@
+<style>
+    /* ===== HERO ===== */
+    .hero-wrapper {
+        background: linear-gradient(135deg, #F7DCC8, #E9AFA3);
+        padding: 85px 0 120px;
+        text-align: center;
+        color: #5A3E36;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+    .hero-title {
+        font-size: 42px;
+        font-weight: 800;
+    }
+
+    /* ===== SEARCH CARD ===== */
+    .search-card {
+        margin-top: -75px;
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(14px);
+        border-radius: 25px;
+        padding: 35px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .filter-label {
+        font-weight: 600;
+        color: #774B43;
+        margin-bottom: 6px;
+    }
+
+    .search-input {
+        height: 52px;
+        border-radius: 14px;
+        border: 1px solid #e6b8ac;
+        background: #FFF8F5;
+        transition: all .2s ease;
+        padding-left: 14px;
+        font-size: 16px;
+    }
+    .search-input:focus {
+        border-color: #D37C71;
+        box-shadow: 0 0 10px rgba(211,124,113,0.35);
+    }
+
+    .small-input {
+        height: 48px;
+        font-size: 15px;
+        border-radius: 12px;
+    }
+
+    /* Search Button */
+    .btn-search {
+        background: #D37C71;
+        color: #fff;
+        height: 52px;
+        border-radius: 14px;
+        width: 100%;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        border: none;
+        transition: .25s;
+    }
+    .btn-search:hover {
+        background: #B8655B;
+    }
+</style>
+
+<!-- ===== HERO ===== -->
+<div class="hero-wrapper">
+    <h1 class="hero-title">Find Your Perfect Recipe 🫶</h1>
+    <p style="font-size:18px; opacity:0.8;">
+        Search dishes by ingredients, meal type, diet preference & cook time!
+    </p>
+</div>
+
+<!-- ===== SEARCH CARD ===== -->
+<div class="container">
+    <div class="search-card">
+
+        <form method="get" action="/Recipe/List">
+
+            <!-- ROW 1 — Recipe + Ingredient search -->
+            <div class="row mb-3">
+                <div class="col-md-7">
+                    <label class="filter-label">Search Recipe</label>
+                    <input type="text" name="search" class="form-control search-input" placeholder="e.g., Pancakes, Curry">
+                </div>
+
+                <div class="col-md-5">
+                    <label class="filter-label">Search by Ingredient</label>
+                    <input type="text" name="ingredient" class="form-control search-input small-input"
+                           placeholder="e.g., Chicken, Paneer, Tomato">
+                </div>
+            </div>
+
+            <!-- ROW 2 — Meal, Diet, Cook Time + SEARCH BUTTON -->
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-3">
+                    <label class="filter-label">Meal Type</label>
+                    <select name="mealTypeId" class="form-control search-input">
+                        <option value="">Any</option>
+                        @foreach (var m in ViewBag.MealTypes)
+                        {
+                            <option value="@m.Id">@m.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="filter-label">Diet Preference</label>
+                    <select name="dietaryId" class="form-control search-input">
+                        <option value="">Any</option>
+                        @foreach (var d in ViewBag.DietFlags)
+                        {
+                            <option value="@d.Id">@d.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="filter-label">Cook Time</label>
+                    <select name="cookTime" class="form-control search-input">
+                        <option value="">Any</option>
+                        <option value="15">15 min</option>
+                        <option value="30">30 min</option>
+                        <option value="45">45 min</option>
+                        <option value="60">1 hour</option>
+                    </select>
+                </div>
+
+                <!-- SEARCH BUTTON in same row -->
+                <div class="col-md-3">
+                    <button class="btn-search">🔍 Search</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

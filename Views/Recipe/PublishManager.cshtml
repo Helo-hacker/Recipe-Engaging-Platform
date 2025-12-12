@@ -1,0 +1,172 @@
+@model List<RecipeSharingApp.Models.Recipe>
+
+<style>
+
+    /* Page Background */
+    .pm-wrapper {
+        background: linear-gradient(180deg, #fff7f1, #f9e7d7);
+        padding: 40px 20px 80px;
+        border-radius: 12px;
+        min-height: 100vh;
+    }
+
+    h2 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #d6782f;
+        margin-bottom: 25px;
+    }
+
+    /* Table Container Card */
+    .pm-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    /* Table */
+    .pm-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .pm-table thead tr {
+        background: #f4d7c2;
+        color: #4a3b36;
+        font-weight: 700;
+    }
+
+    .pm-table th, .pm-table td {
+        padding: 16px;
+        border-bottom: 1px solid #f0e0d4;
+        font-size: 15px;
+    }
+
+    .pm-table tbody tr:hover {
+        background: #fff3ea;
+        transition: 0.25s ease;
+    }
+
+    /* Status Badges */
+    .badge-status {
+        padding: 6px 14px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    .published {
+        background: #4bb468;
+        color: white;
+    }
+
+    .draft {
+        background: #ffb84d;
+        color: white;
+    }
+
+    /* Action Buttons */
+    .pm-btn {
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    .pm-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .publish-btn {
+        background: #4bb468;
+        color: white;
+    }
+
+    .publish-btn:hover {
+        background: #3d9a55;
+    }
+
+    .unpublish-btn {
+        background: #ff8f5c;
+        color: white;
+    }
+
+    .unpublish-btn:hover {
+        background: #ff7a3d;
+    }
+
+    /* Thumbnail */
+    .pm-thumb {
+        height: 60px;
+        width: 60px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+</style>
+
+<div class="pm-wrapper">
+
+    <h2>Publish Manager</h2>
+
+    <div class="pm-card">
+
+        <table class="pm-table">
+            <thead>
+                <tr>
+                    <th>Thumbnail</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th style="width:200px;">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@r.ThumbnailPath" class="pm-thumb" />
+                        </td>
+
+                        <td>@r.Title</td>
+
+                        <td>
+                            @if (r.Status == RecipeStatus.Published)
+                            {
+                                <span class="badge-status published">Published</span>
+                            }
+                            else
+                            {
+                                <span class="badge-status draft">Draft</span>
+                            }
+                        </td>
+
+                        <td>
+                            @if (r.Status == RecipeStatus.Published)
+                            {
+                                <form method="post" action="/Recipe/Unpublish" class="d-inline">
+                                    <input type="hidden" name="id" value="@r.Id" />
+                                    <button class="pm-btn unpublish-btn">Unpublish</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form method="post" action="/Recipe/Publish" class="d-inline">
+                                    <input type="hidden" name="id" value="@r.Id" />
+                                    <button class="pm-btn publish-btn">Publish</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

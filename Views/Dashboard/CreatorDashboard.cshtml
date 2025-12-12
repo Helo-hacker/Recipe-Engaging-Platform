@@ -1,0 +1,183 @@
+@model List<RecipeSharingApp.Models.Recipe>
+
+@{
+    ViewBag.Title = "Creator Dashboard";
+}
+
+<style>
+
+    /* Soft themed background */
+    .dashboard-wrapper {
+        background: linear-gradient(180deg, #fff8f1, #fae9d9);
+        padding: 40px 20px 80px;
+        min-height: 100vh;
+        border-radius: 12px;
+    }
+
+    h2, h3 {
+        font-weight: 800;
+        color: #d87a2f;
+        margin-bottom: 20px;
+    }
+
+    /* ---------- ACTION BUTTONS ---------- */
+    .action-btn {
+        background: #ff8f5c;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-weight: 700;
+        color: white !important;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .action-btn:hover {
+        background: #ff7a3d;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    /* ---------- METRIC CARDS ---------- */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+        margin-top: 25px;
+    }
+
+    .dash-card {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        transition: all .25s ease;
+        color: #5b4a43;
+    }
+
+    .dash-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    .dash-card h2 {
+        font-size: 40px;
+        color: #ff8f5c;
+        font-weight: 800;
+    }
+
+    .dash-card p {
+        font-size: 15px;
+        opacity: 0.8;
+    }
+
+
+    /* ---------- RECENT LIST ---------- */
+    .recent-list {
+        margin-top: 40px;
+    }
+
+    .recent-card {
+        background: #ffffff;
+        padding: 16px;
+        border-radius: 14px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+        transition: all .25s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .recent-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    }
+
+    .recent-card img {
+        width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .recent-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #4d3b33;
+        margin-bottom: 6px;
+    }
+
+    .recent-date {
+        font-size: 14px;
+        opacity: 0.7;
+    }
+
+</style>
+
+
+
+<div class="dashboard-wrapper">
+
+    <h2>Creator Dashboard</h2>
+
+    <!-- TOP BUTTON ACTIONS -->
+    <div class="mb-4 d-flex gap-3 flex-wrap">
+        <a href="/Recipe/Create" class="action-btn">➕ Create Recipe</a>
+        <a href="/Recipe/Manage" class="action-btn">📋 Manage Recipes</a>
+        <a href="/Recipe/PublishManager" class="action-btn">⬆ Publish / Unpublish</a>
+        <a href="#" class="action-btn">⭐ Ratings & Comments</a>
+    </div>
+
+
+    <!-- METRIC STATS -->
+    <div class="dashboard-grid">
+        <div class="dash-card">
+            <h2>@ViewBag.TotalRecipes</h2>
+            <p>Total Recipes</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>@ViewBag.Published</h2>
+            <p>Published</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>@ViewBag.Unpublished</h2>
+            <p>Unpublished</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>@ViewBag.TotalLikes</h2>
+            <p>Total Likes</p>
+        </div>
+    </div>
+
+
+    <!-- RECENT RECIPES -->
+    <div class="recent-list">
+        <h3>Recent Recipes (Latest 3)</h3>
+
+        <div class="d-flex flex-column gap-3 mt-2">
+
+            @foreach (var r in ViewBag.Recent)
+            {
+                <a href="/Recipe/Details/@r.Id" class="recent-card">
+
+                    <img src="@r.ThumbnailPath" alt="Recipe Thumbnail" />
+
+                    <div>
+                        <div class="recent-title">@r.Title</div>
+                        <div class="recent-date">@r.CreatedAt.ToString("dd MMM yyyy")</div>
+                    </div>
+
+                </a>
+            }
+
+        </div>
+    </div>
+
+</div>

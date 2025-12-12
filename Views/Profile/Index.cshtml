@@ -1,0 +1,32 @@
+@model RecipeSharingApp.Models.User
+
+<h2>My Profile</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+<img src="@(Model.Profile?.ProfileImage ?? "/images/no-user.png")"
+     class="img-thumbnail rounded-circle"
+     style="height:180px;width:180px;object-fit:cover;" />
+
+
+<form method="post" enctype="multipart/form-data" action="/Profile/Update">
+<input type="hidden" name="id" value="@(Model.Profile?.Id ?? Model.Id)" />
+
+    <label>Bio</label>
+    <textarea name="bio" class="form-control">@Model.Profile?.Bio</textarea>
+
+    <label>Profile Picture</label>
+    <input type="file" name="profileImage" class="form-control" />
+
+    <button class="btn btn-primary mt-3">Save Changes</button>
+</form>
+
+    </div>
+
+    <div class="col-md-8">
+        <h3>@Model.FullName</h3>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Role:</strong> @Model.Role</p>
+    </div>
+</div>

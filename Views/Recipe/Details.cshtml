@@ -1,0 +1,456 @@
+@model RecipeSharingApp.Models.Recipe
+
+<style>
+    /* ===== COLORS ===== */
+    :root {
+        --warm1: #F7E9E3;     /* light peach */
+        --warm2: #ECD2C7;     /* soft warm beige */
+        --accent: #D37C71;    /* terracotta */
+        --text-dark: #5A3E36;
+        --text-light: #A98278;
+    }
+
+    /* ===== HERO IMAGE ===== */
+    .recipe-hero {
+        position: relative;
+        height: 380px;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .recipe-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(70%);
+    }
+
+    .recipe-hero-title {
+        position: absolute;
+        bottom: 30px;
+        left: 40px;
+        color: #fff;
+        font-size: 46px;
+        font-weight: 800;
+        text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+
+    /* ===== CONTENT WRAPPER ===== */
+    .recipe-container {
+        margin-top: -40px;
+        background: #fff;
+        border-radius: 25px;
+        padding: 35px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+        border-left: 6px solid var(--accent);
+        padding-left: 12px;
+    }
+
+    /* ===== INGREDIENT LIST ===== */
+    .ingredients-card, .steps-card, .instructions-card {
+        background: var(--warm1);
+        border-radius: 18px;
+        padding: 20px 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    ul, ol {
+        padding-left: 22px;
+        font-size: 17px;
+        line-height: 1.6;
+        color: var(--text-light);
+    }
+
+    li::marker {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* TWO COLUMN LAYOUT */
+@@media (min-width: 900px) {
+    .recipe-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+}
+
+    .like-btn {
+        background: #ffceb3;
+        color: #d45727;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .like-btn:hover {
+        background: #ffa67a;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .comment-box {
+        background: #fff6f0;
+        border-radius: 12px;
+        border: 1px solid #ffd7c2;
+    }
+
+    .comment-text {
+        margin: 0;
+        font-size: 15px;
+        color: #5a3928;
+    }
+
+    .comment-input {
+        background: #fff7f2;
+        border-radius: 10px;
+        border: 1px solid #f0c8b5;
+        padding: 10px;
+    }
+
+    .comment-submit {
+        background: #ff8b4c;
+        border: none;
+        padding: 8px 18px;
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .comment-submit:hover {
+        background: #ff6d2d;
+    }
+
+    /* RIGHT SIDE POSITION */
+.like-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* LIKE PILL BUTTON */
+.like-pill {
+    background: linear-gradient(135deg, #ffd8b5, #ffbe99);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #b44a1d;
+    font-size: 16px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.like-pill:hover {
+    transform: scale(1.04);
+}
+
+.like-pill:active {
+    transform: scale(0.96);
+}
+
+/* HEART ICON */
+.heart-icon {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.like-pill:active .heart-icon {
+    transform: scale(1.2);
+}
+
+/* TEXT */
+.like-text {
+    font-size: 16px;
+}
+
+/* ===== HERO IMAGE (IMPROVED) ===== */
+.recipe-hero {
+    position: relative;
+    height: 420px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* Make image brighter + richer */
+.recipe-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* shows image center area beautifully */
+    filter: brightness(88%) saturate(115%); 
+    transition: transform 0.6s ease;
+}
+
+/* Subtle zoom on hover */
+.recipe-hero:hover img {
+    transform: scale(1.05);
+}
+
+/* Modern Glass Title Bar */
+.recipe-hero-title {
+    position: absolute;
+    bottom: 25px;
+    left: 40px;
+    padding: 16px 28px;
+    border-radius: 16px;
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0px 4px 14px rgba(0,0,0,0.45);
+}
+
+/* Responsive improvements */
+@@media (max-width: 768px) {
+    .recipe-hero {
+        height: 300px;
+    }
+
+    .recipe-hero-title {
+        font-size: 26px;
+        padding: 10px 20px;
+        left: 20px;
+        bottom: 20px;
+    }
+}
+
+
+</style>
+
+
+<!-- ===== HERO SECTION ===== -->
+<div class="recipe-hero">
+    <img src="@Model.ThumbnailPath" alt="@Model.Title">
+    <div class="recipe-hero-title">@Model.Title</div>
+</div>
+
+
+<div class="like-wrapper">
+
+    @if (Context.Session.GetInt32("UserId") == null)
+    {
+        <!-- Guest User: Disabled Like Button -->
+        <button class="like-pill" disabled style="opacity:0.6; cursor:not-allowed;">
+            <span class="heart-icon">🤍</span>
+            <span class="like-text">@Model.TotalLikes Likes</span>
+        </button>
+
+        @* <p class="text-muted mt-1" style="font-size:13px;">Login to like this recipe</p> *@
+    }
+    else
+    {
+        <!-- Logged-in User: Active Like Button -->
+        <form method="post" action="/Recipe/ToggleLike">
+            <input type="hidden" name="recipeId" value="@Model.Id" />
+
+            <button class="like-pill">
+                <span class="heart-icon">
+                    @(ViewBag.AlreadyLiked ? "❤️" : "🤍")
+                </span>
+
+                <span class="like-text">@Model.TotalLikes Likes</span>
+            </button>
+        </form>
+    }
+
+</div>
+
+
+
+
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="container mt-5">
+    <div class="recipe-container">
+
+        <!-- DESCRIPTION -->
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+            <p style="font-size: 18px; color: var(--text-dark);">
+                @Model.Description
+            </p>
+        }
+
+        <hr />
+
+        <!-- TWO COLUMN LAYOUT -->
+        <div class="recipe-grid">
+
+            <!-- INGREDIENTS -->
+            <div>
+                <h3 class="section-title">🧂 Ingredients</h3>
+                <div class="ingredients-card">
+                    <ul>
+                        @foreach (var ing in Model.Ingredients)
+                        {
+                            <li><strong>@ing.Quantity</strong> — @ing.Name</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- STEPS -->
+            <div>
+                <h3 class="section-title">👩‍🍳 Steps to Follow</h3>
+                <div class="steps-card">
+                    <ol>
+                        @foreach (var step in Model.Processes)
+                        {
+                            <li>@step.StepDescription</li>
+                        }
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+        <hr />
+
+        <!-- INSTRUCTIONS -->
+        <h3 class="section-title">📌 Tips & Instructions</h3>
+        <div class="instructions-card">
+            <ul>
+                @foreach (var ins in Model.Instructions)
+                {
+                    <li>@ins.InstructionText</li>
+                }
+            </ul>
+        </div>
+
+        <hr class="my-4" />
+
+<!-- Creator Profile Section -->
+
+<style>
+    .creator-section .section-title {
+        font-weight: 700;
+        font-size: 24px;
+        color: #ffcc99;
+        border-left: 5px solid #ff8c42;
+        padding-left: 10px;
+    }
+
+    .creator-card {
+        background: #2b2b2b;
+        border-radius: 20px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+
+    .creator-img {
+        height: 90px;
+        width: 90px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #ff8c42;
+    }
+
+    .creator-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #ffd9b3;
+    }
+
+    .creator-bio {
+        font-size: 15px;
+        color: #e6ccb3;
+        margin-top: 5px;
+    }
+</style>
+
+
+<div class="creator-section mt-5">
+    <h3 class="section-title">
+        <i class="bi bi-person-circle me-2"></i> Creator
+    </h3>
+
+    <div class="creator-card d-flex align-items-center p-4 mt-3">
+        <img src="@(Model.Creator?.Profile?.ProfileImage ?? "/images/no-user.png")"
+             class="creator-img me-4" />
+
+        <div>
+            <h4 class="creator-name mb-1">@Model.Creator?.FullName</h4>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Creator?.Profile?.Bio))
+            {
+                <p class="creator-bio">@Model.Creator.Profile.Bio</p>
+            }
+            else
+            {
+                <p class="creator-bio text-muted">No bio provided.</p>
+            }
+        </div>
+    </div>
+</div>
+
+
+<h4 class="mt-4">Comments</h4>
+
+@if (ViewBag.Comments != null && ViewBag.Comments.Count > 0)
+{
+    foreach (var c in ViewBag.Comments)
+    {
+        <div class="comment-box mb-3 p-3">
+            <div class="d-flex align-items-center mb-1">
+
+                <strong>@c.User.FullName</strong>
+                <span class="text-muted ms-2" style="font-size:12px;">
+                    @c.CreatedAt.ToString("dd MMM yyyy")
+                </span>
+            </div>
+
+            <p class="comment-text">@c.CommentText</p>
+        </div>
+    }
+}
+else
+{
+    <p class="text-muted">No comments yet. Be the first to comment!</p>
+}
+
+
+@* Create Comments *@
+@if (Context.Session.GetInt32("UserId") != null)
+{
+    <form method="post" action="/Recipe/AddComment" class="mt-4">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="recipeId" value="@Model.Id" />
+<textarea 
+    name="commentText"
+    maxlength="200"
+    class="comment-input form-control"
+    placeholder="Write a comment... (200 chars max)"></textarea>
+
+        <button class="comment-submit mt-2">Post Comment</button>
+    </form>
+}
+else
+{
+    <p class="text-muted mt-3">Login to like and comment.</p>
+}
+
+
+
+
+    </div>
+</div>

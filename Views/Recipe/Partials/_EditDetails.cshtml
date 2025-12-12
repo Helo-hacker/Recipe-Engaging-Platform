@@ -1,0 +1,69 @@
+@model RecipeSharingApp.Models.Recipe
+
+<h4>Edit Recipe Details</h4>
+
+<form method="post" action="/Recipe/UpdateDetails" enctype="multipart/form-data">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <label>Title *</label>
+    <input class="form-control" name="Title" value="@Model.Title" required />
+
+    <label>Short Description *</label>
+    <textarea class="form-control" name="ShortDescription" required>@Model.ShortDescription</textarea>
+
+    <label>Description *</label>
+    <textarea class="form-control" name="Description" required>@Model.Description</textarea>
+
+    <div class="row mt-2">
+        <div class="col">
+            <label>Servings *</label>
+            <input class="form-control" name="Servings" type="number" value="@Model.Servings" required />
+        </div>
+
+        <div class="col">
+            <label>Prep Time *</label>
+            <input class="form-control" name="PrepTimeMinutes" type="number" value="@Model.PrepTimeMinutes" required />
+        </div>
+
+        <div class="col">
+            <label>Cook Time *</label>
+            <input class="form-control" name="CookTimeMinutes" type="number" value="@Model.CookTimeMinutes" required />
+        </div>
+    </div>
+
+    <label>Precautions *</label>
+    <textarea class="form-control" name="Precautions" required>@Model.Precautions</textarea>
+
+    <label>Difficulty *</label>
+    <select name="Difficulty" class="form-control">
+        <option value="1" selected="@(Model.Difficulty == RecipeDifficulty.Easy)">Easy</option>
+        <option value="2" selected="@(Model.Difficulty == RecipeDifficulty.Medium)">Medium</option>
+        <option value="3" selected="@(Model.Difficulty == RecipeDifficulty.Hard)">Hard</option>
+    </select>
+
+    <label>Meal Type *</label>
+    <select class="form-control" name="MealTypeId">
+        <option value="1" selected="@(Model.MealTypeId == 1)">Breakfast</option>
+        <option value="2" selected="@(Model.MealTypeId == 2)">Lunch / Dinner</option>
+        <option value="3" selected="@(Model.MealTypeId == 3)">Snacks</option>
+        <option value="4" selected="@(Model.MealTypeId == 4)">Tea</option>
+    </select>
+
+    <label>Dietary *</label>
+    <select class="form-control" name="DietaryFlagId">
+        <option value="1" selected="@(Model.DietaryFlagId == 1)">Veg</option>
+        <option value="2" selected="@(Model.DietaryFlagId == 2)">Non-Veg</option>
+        <option value="3" selected="@(Model.DietaryFlagId == 3)">All</option>
+    </select>
+
+    <label>Thumbnail</label>
+    <input type="file" name="ThumbnailFile" class="form-control" />
+
+    @if (!string.IsNullOrEmpty(Model.ThumbnailPath))
+    {
+        <img src="@Model.ThumbnailPath" width="200" class="mt-2 rounded shadow" />
+    }
+
+    <button class="btn btn-primary mt-3">Save Changes</button>
+</form>
