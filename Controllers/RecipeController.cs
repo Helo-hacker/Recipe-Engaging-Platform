@@ -397,13 +397,22 @@ public async Task<IActionResult> List(
     /* ================================
        SEARCH BY INGREDIENT NAME
        ================================= */
-    if (!string.IsNullOrWhiteSpace(ingredient))
-    {
-        string ing = ingredient.Trim().ToLower();
-        query = query.Where(r =>
-            r.Ingredients.Any(i => i.Name.ToLower().Contains(ing))
-        );
-    }
+if (!string.IsNullOrWhiteSpace(ingredient))
+{
+    var ingredients = ingredient
+        .Split(',', StringSplitOptions.RemoveEmptyEntries)
+        .Select(i => i.Trim().ToLower())
+        .ToList();
+
+    query = query.Where(r =>
+        r.Ingredients.Any(ing =>
+            ingredients.Any(i =>
+                ing.Name.ToLower().Contains(i)
+            )
+        )
+    );
+}
+
 
     /* ================================
        FILTER: MEAL TYPE
@@ -458,60 +467,73 @@ public async Task<IActionResult> Search()
 
 // Like - ratings
 [HttpPost]
-public async Task<IActionResult> ToggleLike(int recipeId)
+public async Task<IActionResult> ToggleLikeAjax(int recipeId)
 {
-    int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
-    if (userId == 0) return Unauthorized();
+    int? userId = HttpContext.Session.GetInt32("UserId");
+    if (userId == null)
+        return Unauthorized();
 
     var existing = await _context.RecipeLikes
-        .FirstOrDefaultAsync(x => x.RecipeId == recipeId && x.UserId == userId);
-
-    var recipe = await _context.Recipes.FindAsync(recipeId);
+        .FirstOrDefaultAsync(l => l.RecipeId == recipeId && l.UserId == userId);
 
     if (existing != null)
     {
         _context.RecipeLikes.Remove(existing);
-        recipe.TotalLikes -= 1;
+        var recipe = await _context.Recipes.FindAsync(recipeId);
+        recipe.TotalLikes--;
     }
     else
     {
         _context.RecipeLikes.Add(new RecipeLike
         {
             RecipeId = recipeId,
-            UserId = userId
+            UserId = userId.Value
         });
 
-        recipe.TotalLikes += 1;
+        var recipe = await _context.Recipes.FindAsync(recipeId);
+        recipe.TotalLikes++;
     }
 
     await _context.SaveChangesAsync();
-    return RedirectToAction("Details", new { id = recipeId });
+
+    var updatedLikes = await _context.Recipes
+        .Where(r => r.Id == recipeId)
+        .Select(r => r.TotalLikes)
+        .FirstAsync();
+
+    bool liked = existing == null;
+
+    return Json(new { likes = updatedLikes, liked });
 }
+
 // comments - users(registered & creator)
 [HttpPost]
 [ValidateAntiForgeryToken]
-public async Task<IActionResult> AddComment(int recipeId, string commentText)
+public async Task<IActionResult> AddCommentAjax(int recipeId, string commentText)
 {
-    int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
-
-    if (userId == 0)
-        return RedirectToAction("Login", "Account");
-
-    if (string.IsNullOrWhiteSpace(commentText))
-        return RedirectToAction("Details", new { id = recipeId });
+    int? userId = HttpContext.Session.GetInt32("UserId");
+    if (userId == null || string.IsNullOrWhiteSpace(commentText))
+        return BadRequest();
 
     var comment = new RecipeComment
     {
         RecipeId = recipeId,
-        UserId = userId,
-        CommentText = commentText.Trim(),
+        UserId = userId.Value,
+        CommentText = commentText,
         CreatedAt = DateTime.UtcNow
     };
 
     _context.RecipeComments.Add(comment);
     await _context.SaveChangesAsync();
 
-    return RedirectToAction("Details", new { id = recipeId });
+    var user = await _context.Users.FindAsync(userId.Value);
+
+    return Json(new
+    {
+        user = user.FullName,
+        text = comment.CommentText,
+        date = comment.CreatedAt.ToString("dd MMM yyyy")
+    });
 }
 
 

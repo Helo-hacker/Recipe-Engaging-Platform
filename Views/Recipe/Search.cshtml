@@ -65,6 +65,48 @@
     .btn-search:hover {
         background: #B8655B;
     }
+    .tag-input-wrapper {
+        background: #FFF8F5;
+        border: 1px solid #e6b8ac;
+        border-radius: 14px;
+        padding: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        min-height: 52px;
+        align-items: center;
+    }
+
+    .tag-input-wrapper:focus-within {
+        border-color: #D37C71;
+        box-shadow: 0 0 10px rgba(211,124,113,0.35);
+    }
+
+    .tag-input {
+        border: none;
+        outline: none;
+        flex: 1;
+        min-width: 120px;
+        background: transparent;
+        font-size: 15px;
+        padding: 6px;
+    }
+    .tag {
+        background: #D37C71;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .tag span {
+        cursor: pointer;
+        font-weight: bold;
+    }
 </style>
 
 <!-- ===== HERO ===== -->
@@ -89,9 +131,16 @@
                 </div>
 
                 <div class="col-md-5">
-                    <label class="filter-label">Search by Ingredient</label>
-                    <input type="text" name="ingredient" class="form-control search-input small-input"
-                           placeholder="e.g., Chicken, Paneer, Tomato">
+                   <label class="filter-label">Search by Ingredients</label>
+
+                    <div class="tag-input-wrapper">
+                        <input type="text"
+                            id="ingredientInput"
+                            class="tag-input"
+                            placeholder="Type ingredient and press Enter">
+                        <input type="hidden" name="ingredient" id="ingredientHidden">
+                    </div>
+
                 </div>
             </div>
 
@@ -142,3 +191,42 @@
 
     </div>
 </div>
+
+<script>
+    const input = document.getElementById("ingredientInput");
+    const hiddenInput = document.getElementById("ingredientHidden");
+    const wrapper = input.parentElement;
+
+    let tags = [];
+
+    function updateHiddenInput() {
+        hiddenInput.value = tags.join(",");
+    }
+
+    function createTag(label) {
+        const div = document.createElement("div");
+        div.className = "tag";
+        div.innerHTML = `${label} <span>&times;</span>`;
+
+        div.querySelector("span").addEventListener("click", () => {
+            tags = tags.filter(t => t !== label);
+            div.remove();
+            updateHiddenInput();
+        });
+
+        wrapper.insertBefore(div, input);
+    }
+
+    input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === ",") {
+            e.preventDefault();
+            const value = input.value.trim().toLowerCase();
+            if (value && !tags.includes(value)) {
+                tags.push(value);
+                createTag(value);
+                updateHiddenInput();
+            }
+            input.value = "";
+        }
+    });
+</script>

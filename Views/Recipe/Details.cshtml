@@ -261,17 +261,13 @@
     else
     {
         <!-- Logged-in User: Active Like Button -->
-        <form method="post" action="/Recipe/ToggleLike">
-            <input type="hidden" name="recipeId" value="@Model.Id" />
+<button class="like-pill" id="likeBtn">
+    <span class="heart-icon" id="heartIcon">
+        @(ViewBag.AlreadyLiked ? "❤️" : "🤍")
+    </span>
+    <span class="like-text" id="likeCount">@Model.TotalLikes Likes</span>
+</button>
 
-            <button class="like-pill">
-                <span class="heart-icon">
-                    @(ViewBag.AlreadyLiked ? "❤️" : "🤍")
-                </span>
-
-                <span class="like-text">@Model.TotalLikes Likes</span>
-            </button>
-        </form>
     }
 
 </div>
@@ -405,52 +401,97 @@
 
 
 <h4 class="mt-4">Comments</h4>
-
-@if (ViewBag.Comments != null && ViewBag.Comments.Count > 0)
-{
-    foreach (var c in ViewBag.Comments)
+<div id="commentsContainer">
+    @foreach (var c in ViewBag.Comments)
     {
         <div class="comment-box mb-3 p-3">
             <div class="d-flex align-items-center mb-1">
-
                 <strong>@c.User.FullName</strong>
                 <span class="text-muted ms-2" style="font-size:12px;">
                     @c.CreatedAt.ToString("dd MMM yyyy")
                 </span>
             </div>
-
             <p class="comment-text">@c.CommentText</p>
         </div>
     }
-}
-else
-{
-    <p class="text-muted">No comments yet. Be the first to comment!</p>
-}
+</div>
+
 
 
 @* Create Comments *@
 @if (Context.Session.GetInt32("UserId") != null)
 {
-    <form method="post" action="/Recipe/AddComment" class="mt-4">
+    <form id="commentForm" class="mt-4">
         @Html.AntiForgeryToken()
-        <input type="hidden" name="recipeId" value="@Model.Id" />
-<textarea 
-    name="commentText"
-    maxlength="200"
-    class="comment-input form-control"
-    placeholder="Write a comment... (200 chars max)"></textarea>
+        <input type="hidden" id="recipeId" value="@Model.Id" />
 
-        <button class="comment-submit mt-2">Post Comment</button>
+        <textarea id="commentText"
+                  maxlength="200"
+                  class="comment-input form-control"
+                  placeholder="Write a comment..."></textarea>
+
+        <button type="submit" class="comment-submit mt-2">Post Comment</button>
     </form>
 }
-else
-{
-    <p class="text-muted mt-3">Login to like and comment.</p>
-}
+
 
 
 
 
     </div>
 </div>
+
+<script>
+    // LIKE (AJAX)
+    document.getElementById("likeBtn")?.addEventListener("click", async () => {
+        const res = await fetch("/Recipe/ToggleLikeAjax", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "recipeId=@Model.Id"
+        });
+
+        if (!res.ok) return;
+
+        const data = await res.json();
+        document.getElementById("likeCount").innerText = data.likes + " Likes";
+        document.getElementById("heartIcon").innerText = data.liked ? "❤️" : "🤍";
+    });
+
+
+    // COMMENT (AJAX)
+    document.getElementById("commentForm")?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const text = document.getElementById("commentText").value.trim();
+        if (!text) return;
+
+        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+        const res = await fetch("/Recipe/AddCommentAjax", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body:
+                `recipeId=@Model.Id&commentText=${encodeURIComponent(text)}&__RequestVerificationToken=${token}`
+        });
+
+        if (!res.ok) return;
+
+        const data = await res.json();
+
+        document.getElementById("commentsContainer").insertAdjacentHTML("afterbegin", `
+            <div class="comment-box mb-3 p-3">
+                <div class="d-flex align-items-center mb-1">
+                    <strong>${data.user}</strong>
+                    <span class="text-muted ms-2" style="font-size:12px;">
+                        ${data.date}
+                    </span>
+                </div>
+                <p class="comment-text">${data.text}</p>
+            </div>
+        `);
+
+        document.getElementById("commentText").value = "";
+    });
+</script>

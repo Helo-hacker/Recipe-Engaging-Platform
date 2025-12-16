@@ -142,3 +142,4 @@ C:\Users\Atharva.Tandel\Desktop\.NET CORE\RecipeSharingApp\obj\Debug\net8.0\refi
 C:\Users\Atharva.Tandel\Desktop\.NET CORE\RecipeSharingApp\obj\Debug\net8.0\RecipeSharingApp.pdb
 C:\Users\Atharva.Tandel\Desktop\.NET CORE\RecipeSharingApp\obj\Debug\net8.0\RecipeSharingApp.genruntimeconfig.cache
 C:\Users\Atharva.Tandel\Desktop\.NET CORE\RecipeSharingApp\obj\Debug\net8.0\ref\RecipeSharingApp.dll
+C:\Users\Atharva.Tandel\Desktop\.NET CORE\RecipeSharingApp\obj\Debug\net8.0\RecipeSharingApp.sourcelink.json
